@@ -1,0 +1,23 @@
+<!-- TODO: -->
+- вставить видео в круглые блоки;
+- hover для круглые блоки с видео;
+- вставить видео фоном в блоке с видео;
+- Провести тесты перед prodaction;
+-
+
+<!-- ********************************************************* -->
+<!--!- To fix: -->
+- номер слайдера начинатся должен с 01;
+-
+
+<!-- ********************************************************* -->
+<!--?- #:>Test before prodaction: -->
+- jquery re-include!;
+- adaptive;
+- link;
+- hover;
+- add more content for testing block;
+- walidator;
+- loading speed;
+- crosbrausers;
+- refacturing code;

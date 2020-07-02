@@ -1,0 +1,1312 @@
+//===Шрифты============================================================================================================================
+@font-face {
+  font-family: "ProximaNova";
+  src: url("../../fonts/proximanova-regular.eot");
+  src: local("☺"), url("../fonts/proximanova-regular.woff") format("woff"),
+    url("../fonts/proximanova-regular.ttf") format("truetype"), url("../fonts/proximanova-regular.svg") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ProximaNova";
+  src: url("../fonts/proximanova-bold.eot");
+  src: local("☺"), url("../fonts/proximanova-bold.woff") format("woff"),
+    url("../fonts/proximanova-bold.ttf") format("truetype"), url("../fonts/proximanova-bold.svg") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+//===/Шрифты===========================================================================================================================
+//-------------------------------------------------------------------------------------------------------------------------------------
+//===Шрифт по умолчанию================================================================================================================
+$fontfamily: "ProximaNova";
+//===/Шрифт по умолчанию===============================================================================================================
+//-------------------------------------------------------------------------------------------------------------------------------------
+//===Файл с обнулением=================================================================================================================
+@import "nullstyle.scss";
+//===/Файл с обнулением================================================================================================================
+//-------------------------------------------------------------------------------------------------------------------------------------
+//===Переменные========================================================================================================================
+
+//===/Переменные=======================================================================================================================
+//-------------------------------------------------------------------------------------------------------------------------------------
+//===Миксины===========================================================================================================================
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  -moz-transition: all $time ease $delay;
+  -ms-transition: all $time ease $delay;
+  -o-transition: all $time ease $delay;
+  transition: all $time ease $delay;
+}
+@mixin anim_cubic($time, $delay) {
+  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+@mixin rotate($deg) {
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+@mixin scale($num) {
+  -moz-transform: scale($num);
+  -ms-transform: scale($num);
+  -webkit-transform: scale($num);
+  -o-transform: scale($num);
+  transform: scale($num);
+}
+@mixin skew($num) {
+  -webkit-transform: skewX($num);
+  -moz-transform: skewX($num);
+  -ms-transform: skewX($num);
+  -o-transform: skewX($num);
+  transform: skewX($num);
+}
+@mixin cnt($h) {
+  display: flex;
+  flex-direction: column;
+  height: $h;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+}
+@mixin tr($x, $y, $z) {
+  transform: translate3d($x, $y, $z);
+}
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+@mixin flexorder($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+//===/Зона контента===================================================================================================================
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0px 10px;
+  @media (max-width: 1230px) {
+    max-width: 970px;
+  }
+  @media (max-width: 1025px) {
+    max-width: 750px;
+  }
+  @media (max-width: 767px) {
+    max-width: none;
+  }
+}
+.container-top {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0px 10px;
+  @media (max-width: 1025px) {
+    max-width: 650px;
+  }
+  @media (max-width: 900px) {
+    max-width: 550px;
+  }
+}
+//===/Зона контента===================================================================================================================
+//===Стили для шапки и подвала========================================================================================================
+@import "header.scss", "footer.scss";
+//===/Стили для шапки и подвала=======================================================================================================
+//************************************************************************************************************************************
+//===Повторяющиеся стили==============================================================================================================
+.logo {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 10.8px;
+  position: relative;
+  @include anim(0.3s, 0s);
+  span {
+    width: 55px;
+    height: 4px;
+    background-color: #bea67c;
+    position: absolute;
+    top: 11px;
+    left: 39px;
+    @include anim(0.3s, 0s);
+  }
+  &:hover {
+    color: #bea67c;
+    span {
+      background-color: #fff;
+    }
+  }
+}
+.share {
+  position: absolute;
+  @include anim(0.3s, 0s);
+  &__icon {
+    width: 23px;
+    height: 25px;
+    cursor: pointer;
+    background: url("../img/main-screen/share-icon.png") no-repeat;
+    @include anim(0.6s, 0s);
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0px -10px;
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 10px 10px 0px 10px;
+    @include anim(0.3s, 0s);
+    transform-origin: right;
+    transform: scale(0, 0);
+    cursor: default;
+    li {
+      padding: 0px 10px;
+    }
+    &.open {
+      transform: scale(1, 1);
+    }
+  }
+  &__link {
+    display: block;
+    width: 32px;
+    height: 32px;
+    @include anim(0.3s, 0s);
+    &_fb {
+      background: url("../img/icon/fb.png") 0 0 no-repeat;
+    }
+    &_tw {
+      background: url("../img/icon/twitter.svg") 0 0 no-repeat;
+    }
+    &_gmail {
+      background: url("../img/icon/gmail.png") center no-repeat;
+    }
+    &:hover {
+      transform: scale(1.5, 1.5);
+    }
+  }
+}
+.button {
+  display: inline-flex;
+  height: 58px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffffff;
+  @include anim(0.3s, 0s);
+  span {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2.8px;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+.slider {
+  min-width: 0;
+  .slick-track {
+    display: block;
+  }
+  &__item {
+    height: 100vh;
+    background-color: #fff;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.letter {
+  width: 187px;
+  height: 264px;
+  opacity: 0.07;
+  color: #bea67c;
+  font-size: 396px;
+  font-weight: 700;
+  letter-spacing: 18px;
+  text-transform: uppercase;
+  z-index: 2;
+  pointer-events: none;
+}
+.number {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  span {
+    color: #bea67c;
+  }
+}
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  color: #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+  position: relative;
+  @include anim(0.3s, 0s);
+  span {
+    display: inline-block;
+    width: 34px;
+    height: 10px;
+    padding: 0px 0px 0px 43px;
+    background: url("../img/icon/arow.svg") no-repeat;
+    animation: more-arow 1s ease infinite alternate;
+    @keyframes more-arow {
+      100% {
+        transform: translate(10px, 0px);
+      }
+    }
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    background-color: #bea67c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  &:hover {
+    color: #bea67c9f;
+  }
+}
+.title {
+  display: block;
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3.36px;
+}
+.text {
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.38px;
+  position: relative;
+  p {
+    margin: 0px 0px 27px 0px;
+  }
+  // Маленькая жолтая полоска
+  &::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 4px;
+    background-color: #bea67c;
+    position: absolute;
+    top: 10px;
+  }
+}
+.image-block {
+  max-width: 616px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15);
+  @include anim(0.3s, 0s);
+  position: relative;
+  // Декоративный прозрачный текст
+  &__decor-text {
+    opacity: 0.2;
+    color: #d0d0d0;
+    font-size: 169px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3.36px;
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+    @include tr(0px, -50%, 0px);
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.description {
+  display: flex;
+  margin: 0px -25px;
+  // Длинная чёрная полоска
+  &:before {
+    content: "";
+    display: block;
+    margin: 20px 0 0px 0px;
+    padding: 0px 25px;
+    width: 151px;
+    height: 1px;
+    background-color: #000;
+  }
+  &__body {
+    padding: 0px 25px;
+    text-align: left;
+  }
+  &__title {
+    margin: 0px 0px 16px 0px;
+    color: #040404;
+  }
+  &__text {
+    max-width: 360px;
+    color: #464646;
+  }
+  &__link {
+    padding: 0px 45px 10px 0px;
+  }
+}
+.block-item {
+  padding: 0px 0px 155px 0px;
+  position: relative;
+  // Большая буква
+  &__letter {
+    position: absolute;
+    top: -270px;
+    right: 26px;
+  }
+  // Вертикальная желтая полоска
+  &::after {
+    content: "";
+    width: 4px;
+    height: 51px;
+    background-color: #a9946e;
+    position: absolute;
+    bottom: 0;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0px -25px;
+  }
+  &__number {
+    position: absolute;
+    bottom: 0;
+    span {
+      color: #bea67c;
+    }
+  }
+  &__column {
+    flex: 1 0 50%;
+    padding: 0px 25px;
+  }
+  // &__description {
+  // }
+  // &__img {
+  // }
+}
+.item-video {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__circle-video {
+    width: 243px;
+    height: 243px;
+    overflow: hidden;
+    padding: 14px;
+    border: 1px solid #e1e1e1;
+    border-radius: 50%;
+    margin: 0px 0px 19px 0px;
+    position: relative;
+    @include anim(0.3s, 0s);
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: fill;
+    }
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   width: 68px;
+    //   height: 68px;
+    //   background-color: #bea67c;
+    //   border-radius: 50%;
+    //   opacity: 0.8;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   @include tr(-50%, -50%, 0px);
+    // }
+    // &::after {
+    //   content: "";
+    //   width: 22px;
+    //   height: 25px;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   @include tr(-50%, -50%, 0px);
+    //   background: url("../img/quality/play.png") center 0 no-repeat;
+    // }
+    // &:hover {
+    //   opacity: 0.8;
+    // }
+  }
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  &__play-btn {
+    display: block;
+    width: 68px;
+    height: 68px;
+    background-color: #bea67c;
+    border-radius: 50%;
+    opacity: 0.8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include tr(-50%, -50%, 0px);
+    &::after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include tr(-50%, -50%, 0px);
+      background: url("../img/quality/play.png") center 0 no-repeat;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 25px;
+      height: 1px;
+      background-color: #bea67c;
+      margin: 0px 0px 8px 0px;
+    }
+  }
+}
+//===/Повторяющиеся стили=============================================================================================================
+//------------------------------------------------------------------------------------------------------------------------------------
+//===Основные стили===================================================================================================================
+a {
+  color: #7f7c7c;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.content {
+  flex: 1 1 auto;
+}
+.main-screen {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  &__share {
+    bottom: 20px;
+    right: 20px;
+    z-index: 4;
+  }
+  &__dots {
+    position: absolute;
+    width: 60%;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #fff;
+  }
+  &__body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(85, 79, 79);
+  }
+  &__slider {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &__fullscreen {
+    flex: 1 1 100%;
+    position: relative;
+    &::after {
+      content: "";
+      width: 4px;
+      height: 51px;
+      background-color: #a9946e;
+      position: absolute;
+      right: 20%;
+      bottom: -25.5px;
+    }
+  }
+  &__letter {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    transform: translate(0px, -35%);
+  }
+  &__bg {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+  &__top-content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+}
+.top-content {
+  padding: 0px 80px;
+  &__body {
+    width: 100%;
+    max-height: 530px;
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
+  &__number {
+    padding: 0px 0px 0px 70px;
+    width: 36px;
+    display: flex;
+    color: #bea67c;
+    align-items: center;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    transform-origin: left;
+    transform: rotate(90deg);
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 51px;
+      height: 4px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin: -3.5px 0px 0px 0px;
+      background-color: #a9946e;
+    }
+    .slick-dots {
+      padding: 0px 0px 0px 85px;
+    }
+  }
+  &__center {
+    max-width: 535px;
+    max-height: 472px;
+    // margin: 0 auto;
+  }
+  &__title {
+    font-size: 100px;
+    letter-spacing: 20.01px;
+    color: #bea67c;
+    margin: 0px 0px 60px 0px;
+    @include anim(1s, 0s);
+    &:hover {
+      color: #fff;
+    }
+  }
+  &__button {
+    padding: 0px 85px;
+    color: #fff;
+    margin: 0px 0px 70px 0px;
+    span {
+      background: url("../img/main-screen/arow-white.svg") center no-repeat;
+    }
+    &::after {
+      display: none;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+  &__help {
+    @include anim(0.3s, 0s);
+    span {
+      display: inline-block;
+      padding: 0px 0px 0px 110px;
+      margin: 0px 0px 0px 10px;
+      transform-origin: left;
+      transform: rotate(90deg);
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 30px;
+      background: url("../img/main-screen/mouse.png") no-repeat;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 74px;
+      background: url("../img/main-screen/arrow.svg") center no-repeat;
+      animation: help-arow 1s ease infinite alternate;
+      @keyframes help-arow {
+        100% {
+          transform: translate(0, 10px);
+        }
+      }
+    }
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  &__vertical-mini-text {
+    position: absolute;
+    bottom: 80px;
+    right: 13px;
+    transform-origin: right;
+    transform: rotate(90deg);
+  }
+}
+.mini-text {
+  color: #bea67c;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.2;
+  letter-spacing: 4.81px;
+}
+.furniture {
+  padding: 90px 0px;
+  margin: 0px 0px 35px 0px;
+  &__block-item {
+    // Позиционировнание вертикальной желтой полоски в низу блока
+    &::after {
+      left: 0;
+    }
+    &_reverse {
+      flex-direction: row;
+    }
+  }
+  // Позиционировнание большой буквы для блока "Furniture"
+  &__letter {
+    &_left {
+      top: -280px;
+      left: -52px;
+    }
+  }
+  &__description {
+    // Длинная чёрная полоска
+    &::before {
+      right: 0;
+    }
+  }
+  // Позиционировнание желтой полоски в блоке discription
+  &__text {
+    &_line-left {
+      &:after {
+        left: -69px;
+      }
+    }
+  }
+  // &__image-block {
+  // }
+  // Позиционировнание порядочного номера
+  &__number_left {
+    left: 0;
+  }
+  // Декоративный прозрачный текст - позиционирование
+  &__decor-text {
+    &_right {
+      right: -120%;
+    }
+  }
+  // !---Adaptive---
+  @media (max-width: 835px) {
+    padding: 90px 50px 0px;
+  }
+  @media (max-width: 650px) {
+    padding: 20px 10px 0px;
+    &__block-item {
+      padding: 0;
+    }
+  }
+}
+.decor {
+  margin: 0px 0px 55px 0px;
+  &__block-item {
+    // Позиционировнание вертикальной желтой полоски в низу блока
+    &::after {
+      right: 0;
+    }
+    // Розворот блока block-item
+    &_reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  // Позиционировнание порядочного номера
+  &__number {
+    &_right {
+      right: 0;
+    }
+  }
+  // Земена местами полосок и описания в блоке description
+  &__description {
+    &_reverse {
+      flex-direction: row-reverse;
+    }
+    // Модификатор для изменения виравнивания контента
+    &_right {
+      text-align: right;
+    }
+  }
+  // Позиционировнание желтой полоски в блоке discription
+  &__text {
+    &_line-right {
+      &::after {
+        right: -70px;
+      }
+    }
+  }
+  // Декоративный прозрачный текст - позиционирование
+  &__decor-text {
+    &_left {
+      left: -55%;
+    }
+  }
+}
+.quality {
+  padding: 70px 0px 0px 0px;
+  margin: 0px 0px 155px 0px;
+  text-align: center;
+  &__title {
+    margin: 0px 0px 30px 0px;
+  }
+  &__description {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 53px 0px;
+    &::before {
+      display: none;
+    }
+  }
+  &__text {
+    &_line-top {
+      padding: 30px 25px 0px;
+      // Маленькая жолтая полоска
+      &::after {
+        top: 0;
+        left: 50%;
+        margin: 0px 0px 0px -22px;
+      }
+    }
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px -10px;
+  }
+
+  &__column {
+    flex: 1 1 auto;
+    padding: 0px 10px;
+  }
+
+  &__item-video {
+    margin: 0px 0px 20px 0px;
+  }
+}
+.video-block {
+  padding: 90px 100px;
+  margin: 0px 0px 140px 0px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &__letter {
+    position: absolute;
+    top: -175px;
+    right: 160px;
+  }
+  &__bg {
+    flex: 1 1 auto;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  &__video {
+    width: 100%;
+    height: 100%;
+  }
+  &__play-icon {
+    width: 865px;
+    height: 832px;
+    position: absolute;
+    top: 50px;
+    right: 5%;
+    background-color: #ffffff;
+    background: url("../img/video-block/play-big.png") 0 0 / contain no-repeat;
+  }
+
+  &__content {
+    height: 737px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #bea67c;
+    &::after {
+      content: "";
+      display: block;
+      flex: 0 1 auto;
+      width: 1px;
+      height: 151px;
+      background-color: #fff;
+    }
+  }
+  &__description {
+    &::before {
+      background-color: #fff;
+    }
+  }
+  &__title {
+    max-width: 570px;
+    padding: 0px 20px 0px 0px;
+    color: #bea67c;
+  }
+  &__text {
+    &_line-left {
+      color: #b8b8b8;
+      p {
+        margin: 0px 0px 40px 0px;
+      }
+      &:after {
+        left: -69px;
+      }
+    }
+  }
+  &__button {
+    padding: 0px 65px;
+    height: 58px;
+    text-align: center;
+    span {
+      padding: 0px 0px 0px 40px;
+      background: url("../img/video-block/play-icon.png") left no-repeat;
+    }
+  }
+}
+.about-us {
+  &__block-item {
+    padding: 0px 0px 125px 0px;
+    // Вертикальная желтая полоска
+    &::after {
+      display: none;
+    }
+  }
+
+  &__row {
+    flex-direction: row-reverse;
+    margin: 0;
+  }
+
+  &__description {
+    padding: 0px 0px 0px 35px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -110px;
+      z-index: 2;
+    }
+  }
+  &__text {
+    &_line-left {
+      &:after {
+        left: -64px;
+      }
+    }
+  }
+  &__image-block {
+    max-width: 580px;
+  }
+
+  &__decor-text {
+    width: 930px;
+    left: -78%;
+  }
+}
+// ***---Adaptive---***---------------------------------------------------------------------------------------------------------------
+@media (max-width: 1025px) {
+  .video-block {
+    padding: 45px 50px;
+    margin: 0px 0px 50px 0px;
+    &__play-icon {
+      width: 565px;
+      height: 532px;
+      top: 0;
+    }
+    &__content {
+      height: 537px;
+    }
+  }
+}
+@media (max-width: 995px) {
+  .block-item {
+    padding: 15px 0px;
+    // Вертикальная желтая полоска
+    &::after {
+      width: 51px;
+      height: 4px;
+      left: 50%;
+      @include tr(-50%, 0px, 0px);
+    }
+    &__body {
+      flex-direction: column;
+    }
+    &__letter {
+      display: none;
+    }
+    &__column {
+      margin: 0px 0px 35px 0px;
+    }
+    &__number {
+      display: none;
+    }
+  }
+  .description {
+    &__title {
+      span {
+        display: block;
+      }
+    }
+  }
+  .furniture {
+    padding: 20px 0px;
+    .block-item {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .decor {
+    .block-item {
+      &::after {
+        display: block;
+      }
+    }
+  }
+  .quality {
+    padding: 0px;
+    margin: 0px 0px 45px 0px;
+    text-align: center;
+    &__title {
+      margin: 0px 0px 11px 0px;
+    }
+    &__text {
+      &_line-top {
+        padding: 15px 25px 0px;
+      }
+    }
+    &__description {
+      margin: 0;
+    }
+  }
+  .video-block {
+    padding: 45px 50px;
+    margin: 0px 0px 50px 0px;
+    &__play-icon {
+      width: 465px;
+      height: 432px;
+    }
+    &__content {
+      height: 337px;
+      &::after {
+        display: block;
+      }
+    }
+    &__description {
+      padding: 0px 10px;
+      &::before {
+        display: none;
+      }
+    }
+    &__title {
+      font-size: 22px;
+    }
+    &__text {
+      &_line-left {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  .about-us {
+    &__block-item {
+      &::after {
+        display: none;
+      }
+    }
+    &__description {
+      padding: 0px;
+      &::before {
+        display: none;
+      }
+    }
+    &__text {
+      &_line-left {
+        &::after {
+          display: none;
+        }
+      }
+    }
+    &__text-align {
+      text-align: center;
+    }
+    &__image-block {
+      max-width: 580px;
+    }
+    &__decor-text {
+      width: 930px;
+      left: -78%;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .main-screen {
+    &__dots {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .top-content {
+    &__number {
+      display: none;
+    }
+    &__title {
+      font-size: 70px;
+      margin: 0px 0px 30px 0px;
+    }
+    &__button {
+      padding: 0px 45px;
+      margin: 0px 0px 30px 0px;
+    }
+    &__vertical-mini-text {
+      bottom: 0;
+      transform: rotate(0deg);
+    }
+  }
+}
+@media (max-width: 768px) {
+  .video-block {
+    &__content {
+      &::after {
+        display: none;
+      }
+    }
+    &__body {
+      text-align: center;
+    }
+    &__title {
+      max-width: 100%;
+      padding: 0;
+      margin: 0px 0px 30px 0px;
+    }
+    &__text {
+      &_line-left {
+        max-width: 100%;
+        font-size: 14px;
+        margin: 0px 0px 30px 0px;
+        p {
+          margin: 0px 0px 20px 0px;
+        }
+      }
+    }
+  }
+}
+@media (max-height: 670px) {
+  .top-content {
+    &__help {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 645px) {
+  .decor {
+    margin: 0px 0px 25px 0px;
+  }
+  .quality {
+    padding: 15px 0px 0px 0px;
+    margin: 0px 0px 15px 0px;
+  }
+  .video-block {
+    &__button {
+      padding: 0px 30px;
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}
+@media (max-width: 550px) {
+  .share {
+    &__list {
+      flex-direction: column;
+      bottom: 50px;
+      li {
+        margin: 0px 0px 30px 0px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .top-content {
+    padding: 0;
+    &__title {
+      font-size: 50px;
+      margin: 0px 0px 30px 0px;
+    }
+    &__button {
+      padding: 0px 35px;
+      margin: 0px 0px 30px 0px;
+    }
+    &__vertical-mini-text {
+      top: -100px;
+    }
+  }
+  .block-item {
+    padding: 0px;
+    &__column {
+      margin: 0px 0px 15px 0px;
+    }
+  }
+  .description {
+    display: flex;
+    margin: 0px -25px;
+    &::before {
+      display: none;
+    }
+    &__body {
+      padding: 0px 25px;
+      text-align: center;
+    }
+    &__title {
+      font-size: 28px;
+    }
+    &__text {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .furniture {
+    padding: 40px 0px 0px 0px;
+    margin: 0px 0px 15px 0px;
+  }
+  .decor {
+    padding: 20px 0px 0px 0px;
+  }
+  .quality {
+    padding: 40px 0px 0px 0px;
+    margin: 0px 0px 15px 0px;
+    &__title {
+      margin: 0;
+    }
+  }
+  .video-block {
+    padding: 0px;
+    margin: 0px 0px 15px 0px;
+    &__content {
+      padding: 10px;
+      border: none;
+    }
+    &__title {
+      font-size: 20px;
+      padding: 0;
+    }
+    &__text {
+      &_line-left {
+        max-width: 100%;
+        font-size: 14px;
+        p {
+          margin: 0px 0px 20px 0px;
+        }
+      }
+    }
+    &__button {
+      width: 206px;
+    }
+  }
+  .about-us {
+    padding: 20px 0px 0px 0px;
+    margin: 0px 0px 15px 0px;
+  }
+}
+@media (max-width: 370px) {
+  .top-content {
+    &__body {
+      top: 50%;
+    }
+    &__title {
+      font-size: 40px;
+      margin: 0px 0px 30px 0px;
+    }
+    &__vertical-mini-text {
+      display: none;
+    }
+  }
+}
+//===/Основные стили==================================================================================================================
+//************************************************************************************************************************************
+//===Отдельный файл с готовыми стилями==============================================================================================================
+@import "ui.scss";
+//===/Отдельный файл с готовыми стилями==============================================================================================================
