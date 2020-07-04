@@ -83,6 +83,7 @@
     text-transform: uppercase;
     letter-spacing: 0.38px;
     &_hide {
+      overflow: auto;
       padding: 80px 30px 30px;
       flex-direction: column;
       align-items: flex-start;
@@ -140,9 +141,11 @@
     cursor: pointer;
     @include anim(0.3s, 0s);
   }
-  &:hover:after {
-    color: #bea67c;
-    border-color: #bea67c;
+  @media (min-width: 1024px) {
+    &:hover:after {
+      color: #bea67c;
+      border-color: #bea67c;
+    }
   }
   &::before {
     content: "x";
@@ -161,17 +164,15 @@
       display: flex;
     }
   }
-  // ! Доделать появления с правого угла
   &__text {
     width: 200px;
     text-align: justify;
     color: #fff;
-    // color: #7f7c7c;
     padding: 10px 30px;
     border-radius: 20px 0px 20px 20px;
     position: absolute;
     top: 25px;
-    right: 25px;
+    right: 0px;
     background-color: rgba(20, 20, 20, 0.6);
     transform-origin: top;
     transform: scale(0);
@@ -212,8 +213,10 @@
     background: url("../img/header/arow-down.svg") 0 0 no-repeat;
     @include tr(0px, -50%, 0px);
   }
-  &:hover {
-    color: #bea67c;
+  @media (min-width: 1024px) {
+    &:hover {
+      color: #bea67c;
+    }
   }
   &.open {
     color: #bea67c;

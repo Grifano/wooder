@@ -33,10 +33,12 @@
       bottom: 0px;
     }
   }
-  &:hover {
-    span {
-      @include anim(0.5s, 0s);
-      background-color: #fff;
+  @media (min-width: 1024px) {
+    &:hover {
+      span {
+        @include anim(0.5s, 0s);
+        background-color: #fff;
+      }
     }
   }
   &.active {

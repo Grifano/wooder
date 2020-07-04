@@ -117,6 +117,9 @@ $fontfamily: "ProximaNova";
     max-width: 550px;
   }
 }
+.lock {
+  overflow: hidden;
+}
 //===/Зона контента===================================================================================================================
 //===Стили для шапки и подвала========================================================================================================
 @import "header.scss", "footer.scss";
@@ -140,10 +143,12 @@ $fontfamily: "ProximaNova";
     left: 39px;
     @include anim(0.3s, 0s);
   }
-  &:hover {
-    color: #bea67c;
-    span {
-      background-color: #fff;
+  @media (min-width: 1024px) {
+    &:hover {
+      color: #bea67c;
+      span {
+        background-color: #fff;
+      }
     }
   }
 }
@@ -156,8 +161,10 @@ $fontfamily: "ProximaNova";
     cursor: pointer;
     background: url("../img/main-screen/share-icon.png") no-repeat;
     @include anim(0.6s, 0s);
-    &:hover {
-      transform: rotate(180deg);
+    @media (min-width: 1024px) {
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
   }
   &__list {
@@ -215,8 +222,10 @@ $fontfamily: "ProximaNova";
     text-transform: uppercase;
     letter-spacing: 2.8px;
   }
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  @media (min-width: 1024px) {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
   }
 }
 .slider {
@@ -290,8 +299,10 @@ $fontfamily: "ProximaNova";
     bottom: 0;
     left: 0;
   }
-  &:hover {
-    color: #bea67c9f;
+  @media (min-width: 1024px) {
+    &:hover {
+      color: #bea67c9f;
+    }
   }
 }
 .title {
@@ -342,8 +353,10 @@ $fontfamily: "ProximaNova";
     display: block;
     max-width: 100%;
   }
-  &:hover {
-    opacity: 0.7;
+  @media (min-width: 1024px) {
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 .description {
@@ -392,6 +405,9 @@ $fontfamily: "ProximaNova";
     background-color: #a9946e;
     position: absolute;
     bottom: 0;
+    @media (max-width: 550px) {
+      bottom: -25px;
+    }
   }
   &__body {
     display: flex;
@@ -642,8 +658,10 @@ a {
     color: #bea67c;
     margin: 0px 0px 60px 0px;
     @include anim(1s, 0s);
-    &:hover {
-      color: #fff;
+    @media (min-width: 1024px) {
+      &:hover {
+        color: #fff;
+      }
     }
   }
   &__button {
@@ -893,7 +911,7 @@ a {
   }
 
   &__content {
-    height: 737px;
+    padding: 215px 0px 185px 0px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -1240,6 +1258,7 @@ a {
       text-align: center;
     }
     &__title {
+      max-width: 300px;
       font-size: 28px;
     }
     &__text {
