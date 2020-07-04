@@ -35,8 +35,10 @@
     span {
       @include anim(0.3s, 0s);
       color: #7d7d7d;
-      &:hover {
-        color: #fff;
+      @media (min-width: 1024px) {
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
